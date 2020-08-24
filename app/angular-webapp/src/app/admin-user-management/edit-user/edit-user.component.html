@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Edit</h2>
+<div mat-dialog-content>
+  <mat-form-field>
+    <label class="control-label"  for="firstName">First name: </label>
+    <input id="firstName" type="text" matInput [(ngModel)]="user.firstName">
+  </mat-form-field>
+  <mat-form-field>
+    <label class="control-label"  for="lastName">Last name: </label>
+    <input id="lastName" type="text" matInput [(ngModel)]="user.lastName">
+  </mat-form-field>
+  <mat-form-field>
+    <label class="control-label"  for="country">Email: </label>
+    <input id="country" type="text" matInput [(ngModel)]="user.email">
+  </mat-form-field>
+  <mat-form-field>
+    <label class="control-label"  for="age">Password: </label>
+    <input id="age"  type="password" matInput [(ngModel)]="password">
+  </mat-form-field>
+
+  <section class="checkbox-section">
+    <mat-checkbox class="margin" [(ngModel)]="isleagueManager">LeagueManager</mat-checkbox>
+    <mat-checkbox class="margin" [(ngModel)]="isUser">User</mat-checkbox>
+  </section>
+
+
+</div>
+<div mat-dialog-actions>
+  <button type="button" class="btn btn-primary" (click)="closeDialog()">Close</button>
+  <button type="button" class="btn btn-primary" (click)="submitDialog()">Submit</button>
+</div>

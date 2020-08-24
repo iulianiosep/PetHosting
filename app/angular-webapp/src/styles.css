@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(https://unpkg.com/bootstrap@4.1.0/dist/css/bootstrap.min.css)
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+ background: rgba(1,1,1,0.5);
+}
+.cdk-overlay-pane.custom-dialog-panel-class{
+  background-color: white;
+}
+.ng-star-inserted .mat-dialog-content {
+  overflow: initial;
+}
