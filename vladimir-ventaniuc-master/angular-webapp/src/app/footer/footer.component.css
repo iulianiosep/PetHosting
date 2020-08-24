@@ -1,0 +1,17 @@
+.footer {
+   position: fixed;
+    bottom: 0;
+  width:100%;
+  height: 40px;
+  background-color: #222222;
+}
+
+.footer .container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin-right: 0;
+  text-align: right;
+  transform: translate(0px, -50%);
+}

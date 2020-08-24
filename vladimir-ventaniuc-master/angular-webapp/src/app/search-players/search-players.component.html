@@ -1,0 +1,97 @@
+<div class="inline-block">
+<div class="control-group">
+  <label class="control-label"  for="firstName">First Name</label>
+  <div class="controls">
+    <input type="text" id="firstName" name="firstName" placeholder="" class="input-xlarge"   [(ngModel)]="firstNameSearch">
+  </div>
+</div>
+<div class="control-group">
+  <label class="control-label"  for="lastName">Last Name</label>
+  <div class="controls">
+    <input type="text" id="lastName" name="lastName" placeholder="" class="input-xlarge"   [(ngModel)]="lastNameSearch">
+  </div>
+</div>
+<div class="control-group">
+  <label class="control-label"  for="country">Country</label>
+  <div class="controls">
+    <input type="text" id="country" name="country" placeholder="" class="input-xlarge"   [(ngModel)]="countrySearch">
+  </div>
+</div>
+</div>
+<div class="inline-block">
+<div class="control-group">
+  <label class="control-label"  for="teamName">Team name</label>
+  <div class="controls">
+    <input type="text" id="teamName" name="teamName" placeholder="" class="input-xlarge"   [(ngModel)]="teamName">
+  </div>
+</div>
+<div class="control-group">
+  <label class="control-label"  for="minPrice">Min price</label>
+  <div class="controls">
+    <input type="number" id="minPrice" name="minPrice" placeholder="" class="input-xlarge"   [(ngModel)]="minValue">
+  </div>
+</div>
+<div class="control-group">
+    <label class="control-label"  for="maxPrice">Max price</label>
+    <div class="controls">
+    <input type="number" id="maxPrice" name="maxPrice" placeholder="" class="input-xlarge"   [(ngModel)]="maxValue">
+    </div>
+</div>
+</div>
+<div class="container">
+<button type="submit" (click)="getTransferList()"><i class="fa fa-search"></i></button>
+</div>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> First name </th>
+    <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Last name </th>
+    <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="country">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Country </th>
+    <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="age">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Age </th>
+    <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Position </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="teamName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Team name </th>
+    <td mat-cell *matCellDef="let element"> {{element.teamName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="value">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Player value </th>
+    <td mat-cell *matCellDef="let element"> {{element.value | number}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+    <td mat-cell *matCellDef="let element"> {{element.price | number}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="buy">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header> Buy </th>
+  <td mat-cell *matCellDef="let element" class="pointer" (click) = "buyPlayer(element)">
+    <a >
+    <span class="glyphicon glyphicon-shopping-cart"></span>
+  </a>
+  </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

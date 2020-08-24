@@ -1,0 +1,60 @@
+<div class="container">
+  <form class="form-horizontal" action='' method="POST">
+    <fieldset>
+      <div id="legend">
+        <legend class="">Register</legend>
+      </div>
+      <div class="control-group">
+        <!-- Username -->
+        <label class="control-label"  for="firstname">First Name</label>
+        <div class="controls">
+          <input type="text" id="firstname" name="username" placeholder="" class="input-xlarge"   [(ngModel)]="firstName">
+          <label *ngIf="firstNameRequired" for="firstname" class="error">First name required</label>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <!-- Username -->
+        <label class="control-label"  for="lastname">Last Name</label>
+        <div class="controls">
+          <input type="text" id="lastname" name="username" placeholder="" class="input-xlarge"   [(ngModel)]="lastName">
+          <label *ngIf="lastNameRequired" for="lastName" class="error">Last name required</label>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <!-- E-mail -->
+        <label class="control-label" for="email">E-mail</label>
+        <div class="controls">
+          <input type="text" id="email" name="email" placeholder="" class="input-xlarge"   [(ngModel)]="email">
+          <label *ngIf="invalidEmail" for="email" class="error">Invalid Email</label>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <!-- Password-->
+        <label class="control-label" for="password">Password</label>
+        <div class="controls">
+          <input type="password" id="password" name="password" placeholder="" class="input-xlarge"   [(ngModel)]="password">
+        </div>
+      </div>
+
+      <div class="control-group">
+        <!-- Password -->
+        <label class="control-label"  for="password_confirm">Password (Confirm)</label>
+        <div class="controls">
+          <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge"   [(ngModel)]="password2">
+          <label *ngIf="passwordsDontMatch" for="password_confirm" class="error">Password doesn't match</label>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <!-- Button -->
+        <div class="controls">
+          <button class="btn btn-success" (click)=register()>Register</button>
+          <label *ngIf="userAlreadyExists"  class="error">Email is already used</label>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
