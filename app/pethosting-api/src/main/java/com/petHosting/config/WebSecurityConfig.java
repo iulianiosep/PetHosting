@@ -59,6 +59,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/register").permitAll()
 				.antMatchers("/socket/**").permitAll()
                 .antMatchers("/admin/**").hasAnyAuthority("Admin")
+                .antMatchers("/host/**").hasAnyAuthority("Host")
+                .antMatchers("/guest/**").hasAnyAuthority("Guest")
                 .antMatchers("/leagueManager/**").hasAnyAuthority("LeagueManager","Admin")
 //                .antMatchers("/admin/**").hasRole("Admin")
                 // all other requests need to be authenticated

@@ -9,18 +9,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  firstName='';
-  lastName='';
-  email='';
-  password='';
-  password2='';
+  firstName = '';
+  lastName = '';
+  email = '';
+  password = '';
+  password2 = '';
   submitted = false;
   passwordsDontMatch = false;
   firstNameRequired = false;
   lastNameRequired = false;
   invalidEmail = false;
   userAlreadyExists = false;
-  registerAsGuest = true;
+  registerAsGuest = false;
 
   constructor(private router: Router,
                   private registerService: AuthenticationService, private formBuilder: FormBuilder) { }
@@ -62,11 +62,12 @@ clearFields(){
     this.password='';
     this.password2='';
 }
-register() {
 
+register() {
     this.checkInputData();
     if(this.invalidEmail || this.firstNameRequired || this.lastNameRequired || this.passwordsDontMatch)
       return;
+
     (this.registerService.register(this.email, this.firstName, this.lastName, this.password, this.password2, this.registerAsGuest).subscribe(
       data => {
         this.router.navigateByUrl('/login')
@@ -77,6 +78,5 @@ register() {
       }
     )
     );
-
   }
 }

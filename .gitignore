@@ -2,6 +2,7 @@
 /dist
 /tmp
 /out-tsc
+app/soccerApi/target/
 
 # dependencies
 /node_modules

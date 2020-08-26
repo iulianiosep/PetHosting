@@ -51,6 +51,16 @@ export class AuthenticationService {
     return !(user === null)
   }
 
+  canAccess(route) {
+    let authorities = JSON.parse(sessionStorage.getItem('authorities'));
+    let necessaryAuth = route.url.split("/")[1]
+    for(let i = 0; i < authorities.length; i++){
+      if(authorities[i]["authority"].toUpperCase() === necessaryAuth.toUpperCase())
+        return true;
+    }
+    return false;
+  }
+
   logOut() {
     this.unsubscribeEvent.emit("Unsubscribe")
     sessionStorage.removeItem('username')

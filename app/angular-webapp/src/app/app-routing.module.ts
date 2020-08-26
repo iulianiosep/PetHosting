@@ -15,9 +15,13 @@ import { AdminComponent } from './admin/admin.component';
 import { PlayerComponent } from './admin/player/player.component';
 import { AdminUserManagementComponent } from './admin-user-management/admin-user-management.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { GuestComponent } from './guest/guest.component';
+import { HostComponent } from './host/host.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
+  { path: 'guest', component: GuestComponent,  canActivate:[AuthGaurdService]},
+  { path: 'host', component: HostComponent,  canActivate:[AuthGaurdService]},
   //{ path: '', component: TeamComponent,canActivate:[AuthGaurdService] },
   { path: 'leagueManager', component : LeagueManagerComponent, canActivate:[AuthGaurdService]},
   { path: 'admin', component: AdminComponent, canActivate:[AuthGaurdService]},

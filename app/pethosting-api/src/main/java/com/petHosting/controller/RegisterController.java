@@ -7,6 +7,7 @@ import com.petHosting.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.task.DelegatingSecurityContextAsyncTaskExecutor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
@@ -29,8 +30,12 @@ public class RegisterController {
             return  ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(INVALID_INPUT);
         if(userService.emailAlreadyUsed(userDTO.getEmail()))
             return  ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(USER_ALREADY_EXISTS);
+        User createdUser;
+        if(userDTO.getRegisterAsGuest())
+            createdUser = userService.add(userDTO, Set.of(new Role("Guest")));
+        else
+            createdUser = userService.add(userDTO, Set.of(new Role("Host")));
 
-        User createdUser = userService.add(userDTO, Set.of(new Role("User"),new Role( "LeagueManager")));
         return ResponseEntity.ok(createdUser);
     }
 }

@@ -35,6 +35,8 @@ import { AddPlayerComponent } from './admin/add-player/add-player.component';
 import { AdminUserManagementComponent } from './admin-user-management/admin-user-management.component';
 import { EditUserComponent } from './admin-user-management/edit-user/edit-user.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { GuestComponent } from './guest/guest.component';
+import { HostComponent } from './host/host.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { HomePageComponent } from './home-page/home-page.component';
     AddPlayerComponent,
     AdminUserManagementComponent,
     EditUserComponent,
-    HomePageComponent
+    HomePageComponent,
+    GuestComponent,
+    HostComponent
   ],
   imports: [
     BrowserModule,

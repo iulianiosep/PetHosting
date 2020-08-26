@@ -14,7 +14,8 @@ export class LoginComponent implements OnInit {
   invalidLogin = false
   isLeagueManager = false;
   isAdmin = false;
-  isUser = false;
+  isGuest = false;
+  isHost = false;
   invalidData = false;
   constructor(private router: Router,
     private loginservice: AuthenticationService) { }
@@ -27,14 +28,14 @@ export class LoginComponent implements OnInit {
       data => {
         this.getRoles();
 
-        if(this.isUser){
-          this.router.navigate(['/team'])
-        }
-        else if(this.isLeagueManager){
-          this.router.navigate(['/leagueManager'])
-        }
-        else if(this.isAdmin){
+        if(this.isAdmin){
           this.router.navigate(['/admin'])
+        }
+        else if(this.isGuest){
+          this.router.navigate(['/guest'])
+        }
+        else if(this.isHost){
+          this.router.navigate(['/host'])
         }
         this.invalidLogin = false;
       },
@@ -55,11 +56,11 @@ export class LoginComponent implements OnInit {
                    if(entry.authority === 'Admin'){
                       this.isAdmin = true;
                    }
-                   if(entry.authority === 'LeagueManager'){
-                      this.isLeagueManager = true;
+                   if(entry.authority === 'Guest'){
+                      this.isGuest = true;
                    }
-                   if(entry.authority === 'User'){
-                      this.isUser = true;
+                   if(entry.authority === 'Host'){
+                      this.isHost = true;
                    }
         });
     }
