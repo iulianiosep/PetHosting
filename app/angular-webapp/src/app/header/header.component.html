@@ -15,9 +15,9 @@
 
   </ul>
     <ul class="navbar-nav right">
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
-      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
-      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/register" class="nav-link">Register</a>
+      <li><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/logout" class="nav-link" (click)="logOut()">LogOut</a></li>
+      <li><a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+      <li><a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/register" class="nav-link">Register</a>
     </ul>
   </nav>
 

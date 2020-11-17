@@ -14,8 +14,8 @@ export class HeaderComponent implements OnInit {
   isAdmin = false;
   isLeagueManager = false;
   isUser = false;
-  constructor(private loginService:AuthenticationService, private teamService:TeamService, private transferListService : TransferListService){
-    this.loginService.updateHeader.subscribe(result => {
+  constructor(private authenticationService:AuthenticationService, private teamService:TeamService, private transferListService : TransferListService){
+    this.authenticationService.updateHeader.subscribe(result => {
     this.resetRoles();
     this.getRoles();
     this.getBalance();
@@ -61,6 +61,10 @@ export class HeaderComponent implements OnInit {
     this.isUser = false;
     this.isAdmin = false;
     this.isLeagueManager = false;
+  }
+
+  logOut(){
+    this.authenticationService.logOut();
   }
 
 }
