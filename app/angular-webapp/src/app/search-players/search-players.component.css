@@ -1,0 +1,41 @@
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+.clickable {cursor: pointer;}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.control-group{
+  display: inline-block;
+  margin-left: 10%;
+}
+
+button {
+
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+  width:30%;
+  min-width:200px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+button:hover {
+  background: #0b7dda;
+}
+pointer{
+  cursor:pointer;
+}

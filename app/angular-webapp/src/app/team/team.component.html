@@ -1,0 +1,149 @@
+<ul class="scrolling-wrapper scrollbar-deep-blue">
+  <h2>Goalkeepers</h2>
+  <li class="card" *ngFor="let player of team.players  | positionfilter : goalkeeperFilter">
+    <div class="container">
+      <div class="row">
+        <div class="well-size">
+          <div class="well">
+            <div class="row">
+              <div class="player-size">
+                <h4>{{player.firstName}} {{player.lastName}}</h4>
+                <p>
+                  Country: {{player.country}}
+                  <br/>
+                  Age: {{player.age}}
+                  <br/>
+                  Value: {{player.value | number}}
+                </p>
+                <!-- Split button -->
+                <div class="btn-group" *ngIf="!player.onTransferList">
+                  <button type="button" class="btn btn-primary" (click)="openModal(player)">
+                    Add to transfer list
+                  </button>
+                </div>
+                <div class="btn-group" *ngIf="player.onTransferList">
+                  <button type="button" class="btn btn-primary" (click)="removePlayerFromTransferList(player)">
+                    Remove from transfer list
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+<ul class="scrolling-wrapper scrollbar-deep-blue">
+  <h2>Defender</h2>
+
+  <li class="card" *ngFor="let player of team.players  | positionfilter : defenderFilter">
+    <div class="container">
+      <div class="row">
+        <div class="well-size">
+          <div class="well">
+            <div class="row">
+              <div class="player-size">
+                <h4>{{player.firstName}} {{player.lastName}}</h4>
+                <p>
+                  Country: {{player.country}}
+                  <br/>
+                  Age: {{player.age}}
+                  <br/>
+                  Value: {{player.value | number}}
+                </p>
+                <!-- Split button -->
+                <div class="btn-group" *ngIf="!player.onTransferList">
+                  <button type="button" class="btn btn-primary" (click)="openModal(player)">
+                    Add to transfer list
+                  </button>
+                </div>
+                <div class="btn-group" *ngIf="player.onTransferList">
+                  <button type="button" class="btn btn-primary" (click)="removePlayerFromTransferList(player)">
+                    Remove from transfer list
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+<ul class="scrolling-wrapper scrollbar-deep-blue">
+  <h2>Midfielders</h2>
+
+  <li class="card" *ngFor="let player of team.players  | positionfilter : midfilderFilter">
+    <div class="container">
+      <div class="row">
+        <div class="well-size">
+          <div class="well">
+            <div class="row">
+              <div class="player-size">
+                <h4>{{player.firstName}} {{player.lastName}}</h4>
+                <p>
+                  Country: {{player.country}}
+                  <br/>
+                  Age: {{player.age}}
+                  <br/>
+                  Value: {{player.value | number}}
+                </p>
+                <!-- Split button -->
+                <div class="btn-group" *ngIf="!player.onTransferList">
+                  <button type="button" class="btn btn-primary" (click)="openModal(player)">
+                    Add to transfer list
+                  </button>
+                </div>
+                <div class="btn-group" *ngIf="player.onTransferList">
+                  <button type="button" class="btn btn-primary" (click)="removePlayerFromTransferList(player)">
+                    Remove from transfer list
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<ul class="scrolling-wrapper scrollbar-deep-blue">
+  <h2>Attackers</h2>
+
+  <li class="card" *ngFor="let player of team.players  | positionfilter : attackerFilter">
+    <div class="container">
+      <div class="row">
+        <div class="well-size">
+          <div class="well">
+            <div class="row">
+              <div class="player-size">
+                <h4>{{player.firstName}} {{player.lastName}}</h4>
+                <p>
+                  Country: {{player.country}}
+                  <br/>
+                  Age: {{player.age}}
+                  <br/>
+                  Value: {{player.value | number}}
+                </p>
+
+                <div class="btn-group" *ngIf="!player.onTransferList">
+                  <button type="button" class="btn btn-primary" (click)="openModal(player)">
+                    Add to transfer list
+                  </button>
+                </div>
+                <div class="btn-group" *ngIf="player.onTransferList">
+                  <button type="button" class="btn btn-primary" (click)="removePlayerFromTransferList(player)">
+                    Remove from transfer list
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+
